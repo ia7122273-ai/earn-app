@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>EarnApp</title>
+  <style>
+    body { font-family: sans-serif; padding: 18px; background:#f7f8fb; color:#111; }
+    .card { background:white; padding:16px; border-radius:10px; box-shadow:0 6px 18px rgba(0,0,0,0.06); margin-bottom:12px; }
+    button { padding:10px 14px; border-radius:8px; border: none; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <h1>Welcome to EarnApp</h1>
+  <div class="card">
+    <h2>Daily Tasks</h2>
+    <p>Complete short tasks to earn points.</p>
+    <button onclick="startTask()">Start Task</button>
+  </div>
+
+  <div class="card">
+    <h2>Your Balance</h2>
+    <p id="balance">₹0</p>
+    <button onclick="withdraw()">Withdraw</button>
+  </div>
+
+  <script>
+    let balance = 0;
+    function startTask() {
+      // simulate earning
+      balance += 5;
+      document.getElementById('balance').innerText = '₹' + balance;
+      alert('Task complete! You earned ₹5');
+    }
+    function withdraw() {
+      if (balance >= 50) {
+        alert('Withdrawal requested for ₹' + balance);
+        balance = 0;
+        document.getElementById('balance').innerText = '₹' + balance;
+      } else {
+        alert('Minimum ₹50 required to withdraw. Current ₹' + balance);
+      }
+    }
+  </script>
+</body>
+</html>
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <WebView
+        android:id="@+id/webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
